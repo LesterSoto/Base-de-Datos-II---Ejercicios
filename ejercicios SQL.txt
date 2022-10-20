@@ -1,0 +1,14 @@
+EJERCICIOS SQL
+===============
+
+1) Seleccione todo los empleados que no tengan jefes
+
+SELECT * FROM employees WHERE reportsTo is NULL;
+
+2) Seleccione a todos los empleados que son jefes
+
+SELECT * FROM employees WHERE employeeNumber IN (SELECT DISTINCT reportsTo FROM employees WHERE reportsTo is NOT NULL);
+
+3) seleccione a todos los empleados que no son jefes
+
+SELECT * FROM employees WHERE employeeNumber NOT IN (SELECT DISTINCT reportsTo FROM employees WHERE reportsTo is NOT NULL);
