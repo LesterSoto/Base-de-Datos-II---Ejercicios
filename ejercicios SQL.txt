@@ -12,3 +12,64 @@ SELECT * FROM employees WHERE employeeNumber IN (SELECT DISTINCT reportsTo FROM 
 3) seleccione a todos los empleados que no son jefes
 
 SELECT * FROM employees WHERE employeeNumber NOT IN (SELECT DISTINCT reportsTo FROM employees WHERE reportsTo is NOT NULL);
+
+
+4)SELECCIONE TODAS LAS COMLUMNAS DE LOS CLIENTES q se encuentren en USA
+
+
+	SELECT   *  FROM    customers WHERE   country='USA';
+
+
+
+5)selecione el nombre y telefono de los clientes con nombre empiece con "M"
+
+
+
+ 	SELECT customerName, phone FROM customers WHERE customerName LIKE'M%';
+
+
+
+6)seleccione todas las comlunas de los clientes q se encuentren el alemania y su nombre contenga '&' ordenados por nombre
+descendentemente
+
+
+
+        SELECT * FROM customers WHERE country='Germany' AND customerName LIKE '%&%' ORDER BY customerName DESC;
+
+
+
+7)seleccione todas las columnas de las ordenes realizadas el año 2004 oredernar por fecha de envio
+
+
+	 SELECT * FROM orders WHERE orderDate BETWEEN '2004-01-01' AND '2004-12-31' ORDER BY shippedDate;
+
+
+
+8)seleccione todas las columnas de los pagos realizados eñ 2003 cuyo monto sea mayor o igual a 100
+
+
+
+	SELECT * FROM payments WHERE paymentDate  BETWEEN '2003-01-01' AND '2003-12-31' AND amount>=1000 ORDER BY amount DESC;
+
+
+9)  SELECIONE LOS 10 pagos mas altos del 2004
+
+
+SELECT * FROM payments WHERE paymentDate  BETWEEN '2003-01-01' AND '2003-12-31'  ORDER BY amount DESC LIMIT 10;
+
+
+
+
+
+10)  SELECIONE LOS 10 pagos mas bajos del 2004
+
+
+
+
+
+SELECT * FROM payments WHERE paymentDate  BETWEEN '2003-01-01' AND '2003-12-31'  ORDER BY amount ASC LIMIT 10;
+
+
+
+
+
